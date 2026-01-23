@@ -21,6 +21,7 @@ body {
 h1 {
     color: white;
     text-shadow: 0px 0px 3px black;
+    font-family: serif;
 }
 
 .m-letters {
@@ -58,10 +59,22 @@ h1 {
 
 @keyframes swivel {
     0% {
-        transform: rotate3d(1, 2, 1, 0deg);
+        transform: rotate3d(1, 0, 1, 0deg) rotate3d(0, 1, 0, 0deg);
+    }
+    13% {
+        transform: rotate3d(1, 0, 1, -30deg) rotate3d(0, 1, 0, -30deg);
+    }
+    38% {
+        transform: rotate3d(1, 0, 1, 30deg) rotate3d(0, 1, 0, 30deg);
+    }
+    63% {
+        transform: rotate3d(1, 0, 1, -30deg) rotate3d(0, 1, 0, 30deg);
+    }
+    88% {
+        transform: rotate3d(1, 0, 1, 30deg) rotate3d(0, 1, 0, -30deg);
     }
     100% {
-        transform: rotate3d(1, 2, 1, -359deg);
+        transform: rotate3d(1, 0, 1, 0deg) rotate3d(0, 1, 0, 0deg);
     }
 }
 
@@ -79,6 +92,7 @@ audio {
     margin-top: -75px;
     border-radius: 50%;
     cursor: pointer;
+    z-index: 0;
 }
 
 .guys:hover {
@@ -118,5 +132,27 @@ audio {
         width: 150px;
         height: 150px;
         transform: rotate(400deg) translate(150px, 0px) rotate(-400deg);
+    }
+}
+
+#background {
+    position: absolute;
+    height: 2000px;
+    width: 2000px;
+    margin-top: -1000px;
+    margin-left: -1000px;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    animation: rotate-in-place 90s infinite linear;
+    overflow: hidden;
+}
+
+@keyframes rotate-in-place {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
