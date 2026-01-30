@@ -60,22 +60,22 @@ h1 {
 
 @keyframes swivel {
     0% {
-        transform: rotate3d(1, 0, 1, 0deg) rotate3d(0, 1, 0, 0deg);
+        transform: perspective(100) rotate3d(1, 0, 1, 0deg) rotate3d(0, 1, 0, 0deg);
     }
     13% {
-        transform: rotate3d(1, 0, 1, -30deg) rotate3d(0, 1, 0, -30deg);
+        transform: perspective(100) rotate3d(1, 0, 1, -30deg) rotate3d(0, 1, 0, -30deg);
     }
     38% {
-        transform: rotate3d(1, 0, 1, 30deg) rotate3d(0, 1, 0, 30deg);
+        transform: perspective(100) rotate3d(1, 0, 1, 30deg) rotate3d(0, 1, 0, 30deg);
     }
     63% {
-        transform: rotate3d(1, 0, 1, -30deg) rotate3d(0, 1, 0, 30deg);
+        transform: perspective(100) rotate3d(1, 0, 1, -30deg) rotate3d(0, 1, 0, 30deg);
     }
     88% {
-        transform: rotate3d(1, 0, 1, 30deg) rotate3d(0, 1, 0, -30deg);
+        transform: perspective(100) rotate3d(1, 0, 1, 30deg) rotate3d(0, 1, 0, -30deg);
     }
     100% {
-        transform: rotate3d(1, 0, 1, 0deg) rotate3d(0, 1, 0, 0deg);
+        transform: perspective(100) rotate3d(1, 0, 1, 0deg) rotate3d(0, 1, 0, 0deg);
     }
 }
 
