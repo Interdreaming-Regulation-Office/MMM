@@ -2,6 +2,14 @@ const titleButton = document.getElementById("title-button");
 const mLetters = document.getElementsByClassName("m-letters");
 const loungeAudio = document.getElementById("lounge");
 
+const guysAudio = {
+    bickle: document.getElementById("hello"),
+    fickle: document.getElementById("looks"),
+    mickle: document.getElementById("help"),
+    slickle: document.getElementById("smells"),
+    tickle: document.getElementById("kidding"),
+}
+
 function revealLetters() {
     for (const mLetter of mLetters) {
         mLetter.classList.add("m-letters-reveal");
@@ -20,14 +28,21 @@ function revealGuy(guy) {
     }, 5000);
 }
 
-function revealGuys() {
-    const bickle = document.getElementById("bickle");
-    const fickle = document.getElementById("fickle");
-    const mickle = document.getElementById("mickle");
-    const slickle = document.getElementById("slickle");
-    const tickle = document.getElementById("tickle");
+function playAudio(name) {
+    Object.values(guysAudio).forEach(audio => audio.pause());
 
-    const guys = [bickle, fickle, mickle, slickle, tickle];
+    guysAudio[name].currentTime = 0;
+    guysAudio[name].play();
+}
+
+function revealGuys() {
+    const guysNames = ["bickle", "fickle", "mickle", "slickle", "tickle"];
+
+    const guys = guysNames.map(name => {
+        const guy = document.getElementById(name);
+        guy.onclick = () => playAudio(name);
+        return guy;
+    });
 
     guys.forEach((guy, i) => {
         setTimeout(() => {
