@@ -22,6 +22,7 @@ function revealLetters() {
 }
 
 function revealGuy(guy) {
+    guy.style.display = "block";
     guy.classList.add("guy-reveal");
     setTimeout(() => {
         guy.classList.add("guy-rotate");
@@ -55,6 +56,10 @@ function attemptOpen(name) {
         if (order.length === 5) {
             // play friends and open site
             console.log("Correct order, site will open!")
+            const friends = document.getElementById("friends");
+            setTimeout(() => {
+                friends.play();
+            }, 3500);
         }
     }
     else {
