@@ -35,12 +35,42 @@ function playAudio(name) {
     guysAudio[name].play();
 }
 
+let order = [];
+
+function checkOrder(order) {
+    const correctOrder = ["bickle", "fickle", "slickle", "mickle", "tickle"];
+
+    for (let item of order) {
+        if (order.indexOf(item) !== correctOrder.indexOf(item))
+            return false;
+    }
+
+    return true;
+}
+
+function attemptOpen(name) {
+    order.push(name);
+
+    if (checkOrder(order)) {
+        if (order.length === 5) {
+            // play friends and open site
+            console.log("Correct order, site will open!")
+        }
+    }
+    else {
+        order = [];
+    }
+}
+
 function revealGuys() {
     const guysNames = ["bickle", "fickle", "mickle", "slickle", "tickle"];
 
     const guys = guysNames.map(name => {
         const guy = document.getElementById(name);
-        guy.onclick = () => playAudio(name);
+        guy.onclick = () => {
+            playAudio(name);
+            attemptOpen(name);
+        }
         return guy;
     });
 
